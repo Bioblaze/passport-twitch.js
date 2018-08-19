@@ -1,7 +1,6 @@
 # passport-twitch.js
 
 ![Build Status](https://img.shields.io/travis/Bioblaze/passport-twitch.js.svg)
-[![Coverage Status](https://coveralls.io/repos/github/Bioblaze/passport-twitch.js/badge.svg?branch=master)](https://coveralls.io/github/Bioblaze/passport-twitch.js?branch=master)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 ![Downloads](https://img.shields.io/npm/dm/passport-twitch.js.svg)
