@@ -1,9 +1,9 @@
 {
   "name": "passport-twitch.js",
   "description": "Passport strategies for authenticating with Twitch using OAuth 2.0 on the New & Old Twitch API.",
-  "version": "0.0.2",
+  "version": "0.0.0-development",
   "main": "./lib/index.js",
-  "homepage": "https://github.com/Bioblaze/passport-twitch.tv/",
+  "homepage": "https://github.com/Bioblaze/passport-twitch.js/",
   "keywords": [
     "passport",
     "twitch",
@@ -31,11 +31,11 @@
     "url": "https://BioblazePayne.me/"
   },
   "bugs": {
-    "web": "https://github.com/Bioblaze/passport-twitch.tv/issues"
+    "web": "https://github.com/Bioblaze/passport-twitch.js/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:Bioblaze/passport-twitch.tv.git"
+    "url": "git://github.com/Bioblaze/passport-twitch.js.git"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -48,6 +48,9 @@
   },
   "devDependencies": {
     "coveralls": "3.0.1",
-    "semantic-release": "15.7.0"
+    "semantic-release": "^15.9.9"
+  },
+  "scripts": {
+    "semantic-release": "semantic-release"
   }
 }
