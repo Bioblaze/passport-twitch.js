@@ -1,21 +1,21 @@
 # passport-twitch.js
 
-![Build Status](https://img.shields.io/travis/Bioblaze/passport-twitch.tv.svg)
-[![Coverage Status](https://coveralls.io/repos/github/Bioblaze/passport-twitch.tv/badge.svg?branch=master)](https://coveralls.io/github/Bioblaze/passport-twitch.tv?branch=master)
+![Build Status](https://img.shields.io/travis/Bioblaze/passport-twitch.js.svg)
+[![Coverage Status](https://coveralls.io/repos/github/Bioblaze/passport-twitch.js/badge.svg?branch=master)](https://coveralls.io/github/Bioblaze/passport-twitch.js?branch=master)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
-![Downloads](https://img.shields.io/npm/dm/passport-twitch.tv.svg)
-![Downloads](https://img.shields.io/npm/dt/passport-twitch.tv.svg)
-![npm version](https://img.shields.io/npm/v/passport-twitch.tv.svg)
-![License](https://img.shields.io/npm/l/passport-twitch.tv.svg)
+![Downloads](https://img.shields.io/npm/dm/passport-twitch.js.svg)
+![Downloads](https://img.shields.io/npm/dt/passport-twitch.js.svg)
+![npm version](https://img.shields.io/npm/v/passport-twitch.js.svg)
+![License](https://img.shields.io/npm/l/passport-twitch.js.svg)
 
-![dependencies](https://img.shields.io/david/Bioblaze/passport-twitch.tv.svg)
-![dev dependencies](https://img.shields.io/david/dev/Bioblaze/passport-twitch.tv.svg)
+![dependencies](https://img.shields.io/david/Bioblaze/passport-twitch.js.svg)
+![dev dependencies](https://img.shields.io/david/dev/Bioblaze/passport-twitch.js.svg)
 
-[![Code Climate](https://codeclimate.com/github/Bioblaze/passport-twitch.tv/badges/gpa.svg)](https://codeclimate.com/github/Bioblaze/passport-twitch.tv)
+[![Code Climate](https://codeclimate.com/github/Bioblaze/passport-twitch.js/badges/gpa.svg)](https://codeclimate.com/github/Bioblaze/passport-twitch.js)
 
 
-Twitch is a trademark or registered trademark of Twitch Interactive, Inc. in the U.S. and/or other countries. "passport-twitch.tv" is not operated by, sponsored by, or affiliated with Twitch Interactive, Inc. in any way.
+Twitch is a trademark or registered trademark of Twitch Interactive, Inc. in the U.S. and/or other countries. "passport-twitch.js" is not operated by, sponsored by, or affiliated with Twitch Interactive, Inc. in any way.
 
 [Passport](http://passportjs.org/) strategies for authenticating with [Twitch](http://www.twitch.tv/)
 using OAuth 2.0 on the New & Old Twitch API.
@@ -41,7 +41,7 @@ accepts these credentials and calls `done` providing a user, as well as
 
 ```javascript
 var passport       = require("passport");
-var twitchStrategy = require("passport-twitch.tv").Strategy;
+var twitchStrategy = require("passport-twitch.js").Strategy;
 
 passport.use(new twitchStrategy({
     clientID: TWITCH_CLIENT_ID,
@@ -59,15 +59,15 @@ passport.use(new twitchStrategy({
 
 #### Authenticate Requests
 
-Use `passport.authenticate()`, specifying the `"twitch"` strategy, to
+Use `passport.authenticate()`, specifying the `"twitch.js"` strategy, to
 authenticate requests.
 
 For example, as route middleware in an [Express](http://expressjs.com/)
 application:
 
 ```javascript
-app.get("/auth/twitch", passport.authenticate("twitch"));
-app.get("/auth/twitch/callback", passport.authenticate("twitch", { failureRedirect: "/" }), function(req, res) {
+app.get("/auth/twitch", passport.authenticate("twitch.js"));
+app.get("/auth/twitch/callback", passport.authenticate("twitch.js", { failureRedirect: "/" }), function(req, res) {
     // Successful authentication, redirect home.
     res.redirect("/");
 });
@@ -77,7 +77,7 @@ Optionally, the `forceVerify` option can be set to `true` to indicate
 that the user should be re-prompted for authorization:
 
 ```javascript
-app.get("/auth/twitch", passport.authenticate("twitch", {forceVerify: true}));
+app.get("/auth/twitch", passport.authenticate("twitch.js", {forceVerify: true}));
 ```
 
 Or if you are using Sails framework:
@@ -86,7 +86,7 @@ Or if you are using Sails framework:
 // AuthController.js
 module.exports = {
     twitch: function(req, res) {
-        passport.authenticate('twitch.tv', function(error, user, info) {
+        passport.authenticate('twitch.js', function(error, user, info) {
             if (error) return res.serverError(error);
             if (info) return res.unauthorized(info);
             return res.ok(user);
@@ -114,7 +114,7 @@ var bodyParser     = require("body-parser");
 var cookieParser   = require("cookie-parser");
 var cookieSession  = require("cookie-session");
 var passport       = require("passport");
-var twitchStrategy = require("passport-twitch.tv").Strategy;
+var twitchStrategy = require("passport-twitch.js").Strategy;
 
 var app = express();
 
@@ -154,8 +154,8 @@ app.get("/", function (req, res) {
     res.render("index");
 });
 
-app.get("/auth/twitch", passport.authenticate("twitch.tv"));
-app.get("/auth/twitch/callback", passport.authenticate("twitch.tv", { failureRedirect: "/" }), function(req, res) {
+app.get("/auth/twitch", passport.authenticate("twitch.js"));
+app.get("/auth/twitch/callback", passport.authenticate("twitch.js", { failureRedirect: "/" }), function(req, res) {
     // Successful authentication, redirect home.
     res.redirect("/");
 });

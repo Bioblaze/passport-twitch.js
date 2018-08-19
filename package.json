@@ -18,9 +18,6 @@
     "strategy",
     "bioblaze"
   ],
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "maintainers": [
     {
       "name": "Bioblaze Payne",
