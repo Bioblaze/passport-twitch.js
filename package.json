@@ -54,7 +54,7 @@
     "travis-deploy-once": "^5.0.2"
   },
   "scripts": {
-    "test": "nodeunit ./lib/index.js",
+    "test": "nodeunit lib",
     "coveralls": "jscoverage lib && YOURPACKAGE_COVERAGE=1 nodeunit --reporter=lcov test | coveralls",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "travis-deploy-once": "travis-deploy-once"
