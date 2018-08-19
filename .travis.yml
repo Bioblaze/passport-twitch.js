@@ -13,7 +13,7 @@ before_install:
 before_script:
   - npm prune
 after_success:
-  - npm run travis-deploy-once "npm run semantic-release"
+  - npm run semantic-release
   - npm run coveralls
 branches:
   except:
