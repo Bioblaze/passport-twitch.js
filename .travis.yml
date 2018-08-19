@@ -19,3 +19,6 @@ after_success:
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
+env:
+  global:
+    - CC_TEST_REPORTER_ID=ecaf54490a0dc6e57b807e72bae7ace1d7a20a2008129bcdff84136929c25cae
