@@ -28,7 +28,7 @@ unobtrusively integrated into any application or framework that supports
 
 ## Install
 ```bash
-$ npm install passport-twitch-new
+$ npm install passport-twitch.js
 ```
 ## Usage of OAuth 2.0
 
