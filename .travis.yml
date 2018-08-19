@@ -3,8 +3,9 @@ language: node_js
 cache:
   directories:
     - node_modules
+    - ~/.npm
 notifications:
-  email: true
+  email: false
 node_js:
   - stable
 before_install:
@@ -12,11 +13,8 @@ before_install:
 before_script:
   - npm prune
 after_success:
-  - 'curl -Lo travis_after_all.py https://git.io/travis_after_all'
-  - python travis_after_all.py
-  - 'export $(cat .to_export_back) &> /dev/null'
+  - npm run travis-deploy-once "npm run semantic-release"
   - npm run coverage
-  - npm run semantic-release
 branches:
   except:
-    - "/^v\\d+\\.\\d+\\.\\d+$/"
+    - /^v\d+\.\d+\.\d+$/

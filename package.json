@@ -35,7 +35,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/Bioblaze/passport-twitch.js.git"
+    "url": "https://github.com/Bioblaze/passport-twitch.js.git"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -48,9 +48,11 @@
   },
   "devDependencies": {
     "coveralls": "3.0.1",
-    "semantic-release": "^15.9.9"
+    "semantic-release": "^15.9.9",
+    "travis-deploy-once": "^5.0.2"
   },
   "scripts": {
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once"
   }
 }
