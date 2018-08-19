@@ -47,12 +47,13 @@
     "pkginfo": "^0.4.1"
   },
   "devDependencies": {
-    "coveralls": "3.0.1",
+    "coveralls": "^3.0.1",
     "semantic-release": "^15.9.9",
     "travis-deploy-once": "^5.0.2"
   },
   "scripts": {
-    "semantic-release": "semantic-release",
+    "coveralls": "cat coverage/lcov.info | coveralls",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "travis-deploy-once": "travis-deploy-once"
   }
 }
