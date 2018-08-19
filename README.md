@@ -1,4 +1,4 @@
-# passport-twitch.tv
+# passport-twitch.js
 
 ![Build Status](https://img.shields.io/travis/Bioblaze/passport-twitch.tv.svg)
 [![Coverage Status](https://coveralls.io/repos/github/Bioblaze/passport-twitch.tv/badge.svg?branch=master)](https://coveralls.io/github/Bioblaze/passport-twitch.tv?branch=master)
@@ -86,7 +86,7 @@ Or if you are using Sails framework:
 // AuthController.js
 module.exports = {
     twitch: function(req, res) {
-        passport.authenticate('twitch-token', function(error, user, info) {
+        passport.authenticate('twitch.tv', function(error, user, info) {
             if (error) return res.serverError(error);
             if (info) return res.unauthorized(info);
             return res.ok(user);
@@ -154,8 +154,8 @@ app.get("/", function (req, res) {
     res.render("index");
 });
 
-app.get("/auth/twitch", passport.authenticate("twitch"));
-app.get("/auth/twitch/callback", passport.authenticate("twitch", { failureRedirect: "/" }), function(req, res) {
+app.get("/auth/twitch", passport.authenticate("twitch.tv"));
+app.get("/auth/twitch/callback", passport.authenticate("twitch.tv", { failureRedirect: "/" }), function(req, res) {
     // Successful authentication, redirect home.
     res.redirect("/");
 });

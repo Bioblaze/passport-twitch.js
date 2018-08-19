@@ -1,5 +1,5 @@
 {
-  "name": "passport-twitch.tv",
+  "name": "passport-twitch.js",
   "description": "Passport strategies for authenticating with Twitch using OAuth 2.0 on the New & Old Twitch API.",
   "version": "0.0.1",
   "main": "./lib/index.js",
@@ -19,8 +19,7 @@
     "bioblaze"
   ],
   "scripts": {
-    "coveralls": "cat coverage/lcov.info | coveralls",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "maintainers": [
     {
@@ -40,9 +39,6 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:Bioblaze/passport-twitch.tv.git"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
     "node": ">=0.10.0"
