@@ -6,6 +6,8 @@
   "homepage": "https://github.com/Bioblaze/passport-twitch.js/",
   "keywords": [
     "passport",
+    "passportjs",
+    "twitch.tv",
     "twitch",
     "auth",
     "authn",
