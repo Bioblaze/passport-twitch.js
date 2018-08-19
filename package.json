@@ -1,0 +1,60 @@
+{
+  "name": "passport-twitch.tv",
+  "description": "Passport strategies for authenticating with Twitch using OAuth 2.0 on the New & Old Twitch API.",
+  "version": "0.0.1",
+  "main": "./lib/index.js",
+  "homepage": "https://github.com/Bioblaze/passport-twitch.tv/",
+  "keywords": [
+    "passport",
+    "twitch",
+    "auth",
+    "authn",
+    "token",
+    "helix",
+    "authentication",
+    "identity",
+    "oauth",
+    "oauth2",
+    "strategy",
+    "bioblaze"
+  ],
+  "scripts": {
+    "coveralls": "cat coverage/lcov.info | coveralls",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "maintainers": [
+    {
+      "name": "Bioblaze Payne",
+      "email": "BioblazePayne@gmail.com",
+      "web": "https://BioblazePayne.me/"
+    }
+  ],
+  "author": {
+    "name": "Bioblaze Payne",
+    "email": "BioblazePayne@gmail.com",
+    "url": "https://BioblazePayne.me/"
+  },
+  "bugs": {
+    "web": "https://github.com/Bioblaze/passport-twitch.tv/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Bioblaze/passport-twitch.tv.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "jsonwebtoken": "^8.3.0",
+    "passport-oauth2": "^1.4.0",
+    "pkginfo": "^0.4.1"
+  },
+  "devDependencies": {
+    "coveralls": "3.0.1",
+    "semantic-release": "15.7.0"
+  }
+}
