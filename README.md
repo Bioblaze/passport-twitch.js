@@ -161,3 +161,5 @@ app.get("/auth/twitch/callback", passport.authenticate("twitch.js", { failureRed
 
 app.listen(3000);
 ```
+
+Projected Maintained by: Randolph Aarseth(Bioblaze Payne)
