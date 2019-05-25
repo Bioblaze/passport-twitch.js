@@ -49,9 +49,7 @@ passport.use(new twitchStrategy({
     scope: "user_read"
   },
   function(accessToken, refreshToken, profile, done) {
-    User.findOrCreate({ twitchId: profile.id }, function (err, user) {
-      return done(err, user);
-    });
+    //Handle Database Query Addition Here.
   }
 ));
 ```
@@ -79,21 +77,6 @@ that the user should be re-prompted for authorization:
 app.get("/auth/twitch", passport.authenticate("twitch.js", {forceVerify: true}));
 ```
 
-Or if you are using Sails framework:
-
-```javascript
-// AuthController.js
-module.exports = {
-    twitch: function(req, res) {
-        passport.authenticate('twitch.js', function(error, user, info) {
-            if (error) return res.serverError(error);
-            if (info) return res.unauthorized(info);
-            return res.ok(user);
-        })(req, res);
-    }
-};
-```
-
 The request to this route should include a GET or POST data with the keys `access_token` and optionally, `refresh_token` set to the credentials you receive from Twitch.
 
 ```
@@ -108,58 +91,73 @@ Once you refresh access token with new permissions, try to send this access toke
 ## Example
 
 ```javascript
-var express        = require("express");
-var bodyParser     = require("body-parser");
-var cookieParser   = require("cookie-parser");
-var cookieSession  = require("cookie-session");
-var passport       = require("passport");
-var twitchStrategy = require("passport-twitch.js").Strategy;
+#!/bin/env node
+
+require('dotenv').config();
+
+var express = require('express');
+var session = require('express-session');
+var helmet = require('helmet');
+var bodyParser = require('body-parser');
+
+var passport = require('passport');
+var refresh = require('passport-oauth2-refresh');
+var _strategy = require('passport-twitch.js').Strategy;
 
 var app = express();
 
-app.set("views", "./views");
-app.set("view engine", "ejs");
-
-// Middlewares
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser());
-app.use(cookieSession({secret:"somesecrettokenhere"}));
-app.use(passport.initialize());
-app.use(express.static("./public"));
-
-passport.use(new twitchStrategy({
-    clientID: TWITCH_CLIENT_ID,
-    clientSecret: TWITCH_CLIENT_SECRET,
-    callbackURL: "http://127.0.0.1:3000/auth/twitch/callback",
-    scope: "user_read"
-  },
-  function(accessToken, refreshToken, profile, done) {
-    // Suppose we are using mongo..
-    User.findOrCreate({ twitchId: profile.id }, function (err, user) {
-      return done(err, user);
-    });
+app.use(session({
+  key: process.env.SESSION_KEY,
+  secret: process.env.SESSION_SECRET,
+  resave: true,
+  saveUninitialized: true,
+  cookie: {
+    secure: true
   }
-));
+}));
 
-passport.serializeUser(function(user, done) {
-    done(null, user);
+app.use(helmet());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+passport.serializeUser(function(u, d) {
+  d(null, u);
+});
+passport.deserializeUser(function(u, d) {
+  d(null, u);
 });
 
-passport.deserializeUser(function(user, done) {
-    done(null, user);
+var TwitchStrategy = new _strategy({
+  clientID: process.env.TWITCH_ID,
+  clientSecret: process.env.TWITCH_SECRET,
+  callbackURL: "http://127.0.0.1:3000/auth/twitch/callback",
+  scope: ["guilds", "connections", "email"]
+}, function(accesstoken, refreshToken, profile, done) {
+  console.log(profile);
+  return done(null, profile);
 });
 
-app.get("/", function (req, res) {
-    res.render("index");
+passport.use(TwitchStrategy);
+refresh.use(TwitchStrategy);
+
+app.get('/', function(req, res) {
+  if (!req.session.user) {
+    res.redirect('/login');
+  } else {
+    res.send(`Hello ${req.session.user.display_name}`);
+  }
 });
 
-app.get("/auth/twitch", passport.authenticate("twitch.js"));
-app.get("/auth/twitch/callback", passport.authenticate("twitch.js", { failureRedirect: "/" }), function(req, res) {
-    // Successful authentication, redirect home.
-    res.redirect("/");
+app.get('/login', passport.authenticate('twitch.js'}));
+app.get('/auth/twitch/callback', passport.authenticate('twitch.js', { failureRedirect: '/' }), function(req, res) {
+  req.session.user = req.user;
+  console.log(req.user);
+  console.log(req.query);
+  res.redirect('/');
 });
-
-app.listen(3000);
+app.listen(process.env.SITE_PORT, process.env.SITE_HOST, function() {
+  console.log(`Express Started`);
+});
 ```
 
 Projected Maintained by: Randolph Aarseth(Bioblaze Payne)
