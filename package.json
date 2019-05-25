@@ -24,13 +24,13 @@
     {
       "name": "Bioblaze Payne",
       "email": "BioblazePayne@gmail.com",
-      "web": "https://BioblazePayne.me/"
+      "web": "https://BioblazePayne.site/"
     }
   ],
   "author": {
     "name": "Bioblaze Payne",
     "email": "BioblazePayne@gmail.com",
-    "url": "https://BioblazePayne.me/"
+    "url": "https://BioblazePayne.site/"
   },
   "bugs": {
     "web": "https://github.com/Bioblaze/passport-twitch.js/issues"
