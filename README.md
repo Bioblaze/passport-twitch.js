@@ -13,6 +13,7 @@
 
 [![Code Climate](https://codeclimate.com/github/Bioblaze/passport-twitch.js/badges/gpa.svg)](https://codeclimate.com/github/Bioblaze/passport-twitch.js)
 [![Discord Chat](https://img.shields.io/discord/165374225320771586.svg)](https://discord.gg/T8uVhzU)  
+[![PayPal](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://paypal.me/BioblazePayne)  
 
 Twitch is a trademark or registered trademark of Twitch Interactive, Inc. in the U.S. and/or other countries. "passport-twitch.js" is not operated by, sponsored by, or affiliated with Twitch Interactive, Inc. in any way.
 
