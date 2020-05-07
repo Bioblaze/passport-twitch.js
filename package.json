@@ -1,7 +1,7 @@
 {
   "name": "passport-twitch.js",
   "description": "Passport strategies for authenticating with Twitch using OAuth 2.0 on the Twitch API.",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "main": "./lib/index.js",
   "homepage": "https://github.com/Bioblaze/passport-twitch.js/",
   "keywords": [
