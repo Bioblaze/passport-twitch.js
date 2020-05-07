@@ -1,7 +1,7 @@
 {
   "name": "passport-twitch.js",
-  "description": "Passport strategies for authenticating with Twitch using OAuth 2.0 on the New & Old Twitch API.",
-  "version": "0.0.7",
+  "description": "Passport strategies for authenticating with Twitch using OAuth 2.0 on the Twitch API.",
+  "version": "0.0.8",
   "main": "./lib/index.js",
   "homepage": "https://github.com/Bioblaze/passport-twitch.js/",
   "keywords": [
@@ -45,11 +45,10 @@
   "license": "GPL-3.0-or-later",
   "dependencies": {
     "jsonwebtoken": "^8.5.1",
-    "passport-oauth2": "^1.5.0",
-    "pkginfo": "^0.4.1"
+    "passport-oauth2": "^1.5.0"
   },
   "devDependencies": {
-    "semantic-release": "^15.9.9",
+    "semantic-release": "^15.14.0",
     "travis-deploy-once": "^5.0.2"
   },
   "scripts": {
